@@ -6,7 +6,7 @@
 </head>
 <body>
     <form action="#" th:action="@{/process}" th:object="${customer}" method="post">
-        <input type="hidden" th:field="*{id}" />
+        ID: <input type="text" th:field="*{id}" />
 
         Title: <input type="text" th:field="*{title}">
         <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
@@ -20,11 +20,11 @@
         Street Address: <input type="text" th:field="*{streetAddress}">
         <span th:if="${#fields.hasErrors('streetAddress')}" th:errors="*{streetAddress}"></span><br />
 
-        City: <input type="text" th:field="*{city}">
-        <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span><br />
+        City: <input type="text" th:field="*{cityID}">
+        <span th:if="${#fields.hasErrors('cityID')}" th:errors="*{cityID}"></span><br />
 
-        State: <input type="text" th:field="*{state}">
-        <span th:if="${#fields.hasErrors('state')}" th:errors="*{state}"></span><br />
+        State: <input type="text" th:field="*{stateID}">
+        <span th:if="${#fields.hasErrors('stateID')}" th:errors="*{stateID}"></span><br />
 
         Zip Code: <input type="text" th:field="*{zipCode}">
         <span th:if="${#fields.hasErrors('zipCode')}" th:errors="*{zipCode}"></span><br />

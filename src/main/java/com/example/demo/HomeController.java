@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 
@@ -29,10 +30,19 @@ public class HomeController {
     public String listCustomers(Model model){
         model.addAttribute("customers", customerRepository.findAll());
 
-        String lastName = "Smith";
-        model.addAttribute("customers",customerRepository.findByLastName(lastName));
-
         return "list";
+    }
+
+    @RequestMapping("/search")
+    public String search(){
+
+        return "search";
+    }
+    @RequestMapping("/processsearch")
+    public String search(@RequestParam("namesearch") String namesearch, Model model){
+        model.addAttribute("customers", customerRepository.findByLastName(namesearch));
+
+        return "results";
     }
 
     @GetMapping("/add")
