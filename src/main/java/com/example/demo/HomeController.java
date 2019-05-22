@@ -16,16 +16,29 @@ public class HomeController {
     @Autowired
     CustomerRepository customerRepository;
 
+    @Autowired
+    CompanyRepository companyRepository;
+
+    @Autowired
+    CityRepository cityRepository;
+
+    @Autowired
+    StateRepository stateRepository;
 
     @RequestMapping("/")
     public String listCustomers(Model model){
         model.addAttribute("customers", customerRepository.findAll());
+
+        String lastName = "Smith";
+        model.addAttribute("customers",customerRepository.findByLastName(lastName));
+
         return "list";
     }
 
     @GetMapping("/add")
     public String customerForm(Model model){
         model.addAttribute("customer", new Customer());
+
         return "customerform";
     }
 

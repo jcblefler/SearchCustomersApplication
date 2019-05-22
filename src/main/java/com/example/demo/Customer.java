@@ -8,7 +8,7 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="customerid")
-    private Long id;
+    private long id;
 
     @Column(name="title")
     private String title;
@@ -22,12 +22,6 @@ public class Customer {
     @Column(name="Streetaddress")
     private String streetAddress;
 
-    @Column(name="City")
-    private String city;
-
-    @Column(name="State")
-    private String state;
-
     @Column(name="Zipcode")
     private String zipCode;
 
@@ -38,7 +32,15 @@ public class Customer {
     private String position;
 
     @Column(name="CompanyID")
-    private Long companyID;
+    private long companyID;
+
+    @Column(name = "CityID")
+    private long cityID;
+
+    @Column(name = "StateID")
+    private long stateID;
+
+
 
     public Long getId() {
         return id;
@@ -80,22 +82,6 @@ public class Customer {
         this.streetAddress = streetAddress;
     }
 
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
     public String getZipCode() {
         return zipCode;
     }
@@ -120,15 +106,39 @@ public class Customer {
         this.position = position;
     }
 
-    public Long getCompanyID() {
+    public long getCompanyID() {
         return companyID;
     }
 
-    public void setCompanyID(Long companyID) {
+    public void setCompanyID(long companyID) {
         this.companyID = companyID;
     }
+
+    public long getCityID() {
+        return cityID;
+    }
+
+    public void setCityID(long cityID) {
+        this.cityID = cityID;
+    }
+
+    public long getStateID() {
+        return stateID;
+    }
+
+    public void setStateID(long stateID) {
+        this.stateID = stateID;
+    }
+
+
 
     public Customer() {
     }
 
+
+//    public String displayCity(long cityID){
+//
+//        return city.get();
+//        return("No City Found.");
+//    }
 }
